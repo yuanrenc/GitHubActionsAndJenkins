@@ -1,0 +1,34 @@
+name: Hello World Workflow
+
+on:
+  push:
+    branches:
+      - '**' # This triggers the workflow on a push to any branch
+
+jobs:
+  job1:
+    name: First Hello Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Hello from Job 1
+        run: |
+          echo "Hello, World! from Job 1"
+          echo "Completed at $(date)"
+
+  job2:
+    name: Second Hello Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Hello from Job 2
+        run: |
+          echo "Hello, World! from Job 2"
+          echo "Completed at $(date)"
+
+  job3:
+    name: Fail Job
+    runs-on: ubuntu-latest
+    steps:
+      - name: Intentionally Fail
+        run: |
+          echo "This job is going to fail!"
+          exit 1
